@@ -1,0 +1,374 @@
+import Link from "next/link";
+import Image from "next/image";
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
+import {
+  bidangPraktikListQuery,
+  artikelUnggulanQuery,
+  timListQuery,
+} from "@/lib/queries";
+import { getAreaIcon } from "@/lib/areaIcons";
+import { HeroIllustration } from "@/components/HeroIllustration";
+
+export const revalidate = 3600;
+
+type BidangPraktik = {
+  judul: string;
+  slug: string;
+  deskripsiSingkat: string;
+};
+
+type ArtikelUnggulan = {
+  judul: string;
+  slug: string;
+  kategori: { judul: string; slug: string } | null;
+  gambarSampul: { asset: { _ref: string }; alt?: string } | null;
+  ringkasan: string;
+  tanggalPublikasi: string;
+};
+
+type AnggotaTim = {
+  nama: string;
+  slug: string;
+  jabatan: string;
+  foto: { asset: { _ref: string } } | null;
+};
+
+async function getData() {
+  try {
+    const [bidangPraktik, artikelUnggulan, tim] = await Promise.all([
+      client.fetch<BidangPraktik[]>(bidangPraktikListQuery),
+      client.fetch<ArtikelUnggulan[]>(artikelUnggulanQuery),
+      client.fetch<AnggotaTim[]>(timListQuery),
+    ]);
+    return { bidangPraktik: bidangPraktik ?? [], artikelUnggulan: artikelUnggulan ?? [], tim: tim ?? [] };
+  } catch {
+    return { bidangPraktik: [], artikelUnggulan: [], tim: [] };
+  }
+}
+
+export default async function BerandaPage() {
+  const { bidangPraktik, artikelUnggulan, tim } = await getData();
+
+  return (
+    <>
+      <section className="bg-navy-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-6">
+                Kantor Hukum ATA &amp; Rekan · Berdiri 2013
+              </p>
+              <h1 className="font-display text-ivory text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
+                Solusi Hukum yang Andal dan Profesional
+              </h1>
+              <p className="font-body text-blue-pale text-lg leading-relaxed mb-10">
+                Kami hadir untuk mendampingi Anda menghadapi berbagai persoalan
+                hukum dengan pendekatan yang cermat, transparan, dan berpihak pada
+                keadilan. Berlokasi di Majalengka, Jawa Barat.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://wa.me/6281320722147"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-terracotta text-white font-body font-medium px-6 py-3 rounded hover:bg-terracotta/90 transition-colors"
+                >
+                  Konsultasi via WhatsApp
+                </a>
+                <Link
+                  href="/bidang-praktik"
+                  className="inline-flex items-center gap-2 border border-white/20 text-ivory font-body font-medium px-6 py-3 rounded hover:border-white/40 hover:bg-white/5 transition-colors"
+                >
+                  Lihat Bidang Praktik
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex justify-center lg:justify-end">
+              <HeroIllustration className="max-w-[220px] sm:max-w-xs lg:max-w-sm w-full" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ivory">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+              <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+                Tentang Kami
+              </p>
+              <h2 className="font-display text-navy-950 text-3xl md:text-4xl font-semibold leading-tight mb-6">
+                Pengacara Berpengalaman, Solusi Nyata
+              </h2>
+              <p className="font-body text-navy-900/70 text-base leading-relaxed mb-8">
+                Sejak 2013, Kantor Hukum ATA &amp; Rekan telah memberikan
+                pelayanan hukum yang komprehensif kepada klien perorangan
+                maupun korporat di wilayah Jawa Barat dan sekitarnya.
+                Kepercayaan klien adalah fondasi utama praktik kami.
+              </p>
+              <Link
+                href="/tentang"
+                className="inline-flex items-center gap-2 font-body font-medium text-navy-950 border-b border-navy-950/30 pb-0.5 hover:border-terracotta hover:text-terracotta transition-colors"
+              >
+                Pelajari Lebih Lanjut
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { nilai: "11+", label: "Tahun Beroperasi" },
+                { nilai: "11", label: "Bidang Praktik" },
+                { nilai: "5", label: "Advokat & Profesional" },
+                { nilai: "100%", label: "Transparansi Biaya" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="bg-navy-950 rounded-lg p-6 flex flex-col gap-2"
+                >
+                  <p className="font-label text-3xl font-medium text-terracotta">
+                    {stat.nilai}
+                  </p>
+                  <p className="font-body text-sm text-blue-pale">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-navy-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div>
+              <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+                Layanan Kami
+              </p>
+              <h2 className="font-display text-ivory text-3xl md:text-4xl font-semibold leading-tight">
+                Bidang Praktik
+              </h2>
+            </div>
+            <Link
+              href="/bidang-praktik"
+              className="font-body text-sm text-blue-pale hover:text-ivory transition-colors shrink-0"
+            >
+              Lihat semua →
+            </Link>
+          </div>
+
+          {bidangPraktik.length === 0 ? (
+            <p className="font-body text-blue-pale/60 text-center py-12">
+              Konten bidang praktik belum tersedia.
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded-lg overflow-hidden">
+              {bidangPraktik.slice(0, 6).map((b) => {
+                const Icon = getAreaIcon(b.slug);
+                return (
+                  <Link
+                    key={b.slug}
+                    href={`/bidang-praktik/${b.slug}`}
+                    className="group bg-navy-900 hover:bg-navy-950 transition-colors p-6 flex flex-col gap-4"
+                  >
+                    <div className="w-10 h-10 text-terracotta">
+                      <Icon className="w-full h-full" />
+                    </div>
+                    <div>
+                      <p className="font-display text-ivory font-medium mb-2 group-hover:text-terracotta transition-colors">
+                        {b.judul}
+                      </p>
+                      <p className="font-body text-sm text-blue-pale leading-relaxed line-clamp-2">
+                        {b.deskripsiSingkat}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="bg-navy-900 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div className="max-w-xl">
+              <p className="font-label text-xs uppercase tracking-widest text-blue-light mb-4">
+                Edukasi Hukum
+              </p>
+              <h2 className="font-display text-ivory text-3xl md:text-4xl font-semibold leading-tight mb-4">
+                Mengenal hak Anda di mata hukum
+              </h2>
+              <p className="font-body text-blue-pale text-sm leading-relaxed">
+                Kami percaya pengetahuan hukum bukan hanya untuk praktisi.
+                Artikel berikut merangkum ketentuan yang berlaku di Indonesia
+                agar masyarakat lebih memahami hak dan posisinya.
+              </p>
+            </div>
+            <Link
+              href="/artikel"
+              className="font-body text-sm text-blue-pale hover:text-ivory transition-colors shrink-0"
+            >
+              Lihat semua →
+            </Link>
+          </div>
+
+          {artikelUnggulan.length === 0 ? (
+            <p className="font-label text-sm text-[#5A719A] text-center py-14">
+              Artikel edukasi hukum akan segera hadir di sini.
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {artikelUnggulan.map((a) => (
+                <Link
+                  key={a.slug}
+                  href={`/artikel/${a.slug}`}
+                  className="group bg-white/5 border border-white/10 rounded-lg p-6 flex flex-col gap-4 hover:bg-white/10 transition-colors"
+                >
+                  {a.kategori && (
+                    <p className="font-label text-xs text-terracotta uppercase tracking-wide">
+                      {a.kategori.judul}
+                    </p>
+                  )}
+                  <h3 className="font-display text-ivory font-medium leading-snug group-hover:text-terracotta transition-colors line-clamp-2">
+                    {a.judul}
+                  </h3>
+                  <p className="font-body text-sm text-[#93A5C4] leading-relaxed line-clamp-3 flex-1">
+                    {a.ringkasan}
+                  </p>
+                  <span className="font-label text-xs text-terracotta mt-auto">
+                    Baca selengkapnya →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {tim.length > 0 && (
+        <section className="bg-ivory border-t border-navy-950/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+              <div>
+                <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+                  Tim Kami
+                </p>
+                <h2 className="font-display text-navy-950 text-3xl md:text-4xl font-semibold leading-tight">
+                  Advokat &amp; Profesional
+                </h2>
+              </div>
+              <Link
+                href="/tim"
+                className="font-body text-sm text-navy-900/60 hover:text-navy-950 transition-colors shrink-0"
+              >
+                Kenali tim kami →
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+              {tim.slice(0, 5).map((anggota) => (
+                <div key={anggota.slug} className="flex flex-col gap-3 text-center">
+                  <div className="aspect-square rounded-lg overflow-hidden bg-navy-900/10 mx-auto w-full max-w-36">
+                    {anggota.foto ? (
+                      <Image
+                        src={urlForImage(anggota.foto).width(300).height(300).url()}
+                        alt={anggota.nama}
+                        width={300}
+                        height={300}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[#E3DFD3]" />
+                    )}
+                  </div>
+                  <div>
+                    <p className="font-display text-navy-950 font-medium text-sm">
+                      {anggota.nama}
+                    </p>
+                    <p className="font-label text-xs text-navy-900/50 mt-0.5">
+                      {anggota.jabatan}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="bg-navy-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+              <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+                Hubungi Kami
+              </p>
+              <h2 className="font-display text-ivory text-3xl md:text-4xl font-semibold leading-tight mb-6">
+                Siap Membantu Anda
+              </h2>
+              <p className="font-body text-blue-pale leading-relaxed mb-8">
+                Dapatkan konsultasi hukum dari tim kami. Kami siap mendengar
+                dan memberikan solusi terbaik untuk permasalahan hukum Anda.
+              </p>
+              <a
+                href="https://wa.me/6281320722147"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-terracotta text-white font-body font-medium px-6 py-3 rounded hover:bg-terracotta/90 transition-colors"
+              >
+                Konsultasi Sekarang
+              </a>
+            </div>
+
+            <div className="flex flex-col gap-5">
+              {[
+                {
+                  label: "Alamat",
+                  value:
+                    "Komplek Pasar Sindangkasih, Cigasong, Kabupaten Majalengka, Jawa Barat 45476",
+                },
+                {
+                  label: "WhatsApp",
+                  value: "+62 813-2072-2147",
+                  href: "https://wa.me/6281320722147",
+                },
+                {
+                  label: "Email",
+                  value: "info@ataandrekan.co.id",
+                  href: "mailto:info@ataandrekan.co.id",
+                },
+                {
+                  label: "Jam Operasional",
+                  value: "Senin – Jumat, 09.00 – 17.00 WIB",
+                },
+              ].map((item) => (
+                <div key={item.label} className="flex gap-4">
+                  <p className="font-label text-xs text-terracotta uppercase tracking-wide w-28 shrink-0 pt-0.5">
+                    {item.label}
+                  </p>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="font-body text-sm text-blue-pale hover:text-ivory transition-colors"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="font-body text-sm text-blue-pale">{item.value}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
