@@ -24,7 +24,13 @@ type AnggotaTim = {
 
 async function getData(): Promise<AnggotaTim[]> {
   try {
-    return (await client.fetch<AnggotaTim[]>(timListQuery)) ?? [];
+    return (
+      (await client.fetch<AnggotaTim[]>(
+        timListQuery,
+        {},
+        { next: { tags: ["anggotaTim"] } }
+      )) ?? []
+    );
   } catch {
     return [];
   }

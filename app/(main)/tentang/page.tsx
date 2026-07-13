@@ -23,7 +23,11 @@ type HalamanTentang = {
 
 async function getData(): Promise<HalamanTentang | null> {
   try {
-    return await client.fetch<HalamanTentang>(halamanTentangQuery);
+    return await client.fetch<HalamanTentang>(
+      halamanTentangQuery,
+      {},
+      { next: { tags: ["halamanTentang"] } }
+    );
   } catch {
     return null;
   }

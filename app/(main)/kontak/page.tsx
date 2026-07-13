@@ -19,13 +19,19 @@ type BidangItem = {
 
 async function getBidangPraktik(): Promise<BidangItem[]> {
   try {
-    return (await client.fetch<BidangItem[]>(`
+    return (
+      (await client.fetch<BidangItem[]>(
+        `
       *[_type == "bidangPraktik"] | order(urutan asc){
         _id,
         judul,
         "slug": slug.current
       }
-    `)) ?? [];
+    `,
+        {},
+        { next: { tags: ["bidangPraktik"] } }
+      )) ?? []
+    );
   } catch {
     return [];
   }

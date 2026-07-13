@@ -54,11 +54,13 @@ export default async function ArtikelPage({
   try {
     [artikel, kategoriList] = await Promise.all([
       kategoriFilter
-        ? client.fetch<Artikel[]>(artikelByKategoriQuery, {
-            kategoriSlug: kategoriFilter,
-          })
-        : client.fetch<Artikel[]>(artikelListQuery),
-      client.fetch<Kategori[]>(bidangPraktikListQuery),
+        ? client.fetch<Artikel[]>(
+            artikelByKategoriQuery,
+            { kategoriSlug: kategoriFilter },
+            { next: { tags: ["artikel"] } }
+          )
+        : client.fetch<Artikel[]>(artikelListQuery, {}, { next: { tags: ["artikel"] } }),
+      client.fetch<Kategori[]>(bidangPraktikListQuery, {}, { next: { tags: ["bidangPraktik"] } }),
     ]);
     artikel = artikel ?? [];
     kategoriList = kategoriList ?? [];

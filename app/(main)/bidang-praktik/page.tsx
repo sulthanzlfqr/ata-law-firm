@@ -20,7 +20,13 @@ type BidangPraktik = {
 
 async function getData(): Promise<BidangPraktik[]> {
   try {
-    return (await client.fetch<BidangPraktik[]>(bidangPraktikListQuery)) ?? [];
+    return (
+      (await client.fetch<BidangPraktik[]>(
+        bidangPraktikListQuery,
+        {},
+        { next: { tags: ["bidangPraktik"] } }
+      )) ?? []
+    );
   } catch {
     return [];
   }

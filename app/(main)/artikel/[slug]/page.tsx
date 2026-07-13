@@ -27,7 +27,11 @@ type ArtikelDetail = {
 
 async function getData(slug: string): Promise<ArtikelDetail | null> {
   try {
-    return await client.fetch<ArtikelDetail>(artikelDetailQuery, { slug });
+    return await client.fetch<ArtikelDetail>(
+      artikelDetailQuery,
+      { slug },
+      { next: { tags: ["artikel"] } }
+    );
   } catch {
     return null;
   }

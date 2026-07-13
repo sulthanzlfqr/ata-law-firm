@@ -18,9 +18,11 @@ type BidangPraktikDetail = {
 
 async function getData(slug: string): Promise<BidangPraktikDetail | null> {
   try {
-    return await client.fetch<BidangPraktikDetail>(bidangPraktikDetailQuery, {
-      slug,
-    });
+    return await client.fetch<BidangPraktikDetail>(
+      bidangPraktikDetailQuery,
+      { slug },
+      { next: { tags: ["bidangPraktik"] } }
+    );
   } catch {
     return null;
   }

@@ -37,9 +37,9 @@ type AnggotaTim = {
 async function getData() {
   try {
     const [bidangPraktik, artikelUnggulan, tim] = await Promise.all([
-      client.fetch<BidangPraktik[]>(bidangPraktikListQuery),
-      client.fetch<ArtikelUnggulan[]>(artikelUnggulanQuery),
-      client.fetch<AnggotaTim[]>(timListQuery),
+      client.fetch<BidangPraktik[]>(bidangPraktikListQuery, {}, { next: { tags: ["bidangPraktik"] } }),
+      client.fetch<ArtikelUnggulan[]>(artikelUnggulanQuery, {}, { next: { tags: ["artikel"] } }),
+      client.fetch<AnggotaTim[]>(timListQuery, {}, { next: { tags: ["anggotaTim"] } }),
     ]);
     return { bidangPraktik: bidangPraktik ?? [], artikelUnggulan: artikelUnggulan ?? [], tim: tim ?? [] };
   } catch {
