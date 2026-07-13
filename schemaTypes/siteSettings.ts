@@ -9,7 +9,7 @@ export default defineType({
       name: "namaFirma",
       title: "Nama Firma",
       type: "string",
-      initialValue: "Kantor Hukum ATA & Rekan",
+      initialValue: "ATA Law Firm",
       validation: (Rule) => Rule.required(),
     }),
     defineField({

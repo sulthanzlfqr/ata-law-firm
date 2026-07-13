@@ -18,13 +18,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <p className="font-display text-ivory text-xl font-semibold mb-3">
-              ATA &amp; Rekan
+              ATA Law Firm
             </p>
             <p className="text-sm leading-relaxed font-body mb-4">
-              Kantor Hukum ATA &amp; Rekan memberikan layanan hukum profesional
+              ATA Law Firm memberikan layanan hukum profesional
               dengan pendekatan yang cermat dan berpihak pada keadilan.
             </p>
-            <p className="font-label text-xs text-blue-light">Berdiri sejak 2013</p>
           </div>
 
           <div>
@@ -75,7 +74,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="text-xs font-label text-blue-pale/60">
-            &copy; {year} Kantor Hukum ATA &amp; Rekan. Hak cipta dilindungi.
+            &copy; {year} ATA Law Firm. Hak cipta dilindungi.
           </p>
           <p className="text-xs font-label text-blue-pale/40">
             Senin – Jumat, 09.00 – 17.00 WIB

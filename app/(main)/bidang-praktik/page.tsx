@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Bidang Praktik",
   description:
-    "Lihat semua bidang praktik yang ditangani Kantor Hukum ATA & Rekan.",
+    "Lihat semua bidang praktik yang ditangani ATA Law Firm.",
 };
 
 type BidangPraktik = {

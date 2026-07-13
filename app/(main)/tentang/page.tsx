@@ -8,7 +8,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Tentang Kami",
   description:
-    "Pelajari lebih lanjut tentang Kantor Hukum ATA & Rekan, visi misi, dan tim kami.",
+    "Pelajari lebih lanjut tentang ATA Law Firm, visi misi, dan tim kami.",
 };
 
 type HalamanTentang = {
@@ -40,7 +40,7 @@ export default async function TentangPage() {
             {data?.labelEyebrow ?? "Tentang Kami"}
           </p>
           <h1 className="font-display text-ivory text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">
-            {data?.judul ?? "Kantor Hukum ATA & Rekan"}
+            {data?.judul ?? "ATA Law Firm"}
           </h1>
         </div>
       </section>

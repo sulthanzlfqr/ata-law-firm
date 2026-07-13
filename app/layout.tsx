@@ -21,11 +21,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kantor Hukum ATA & Rekan",
-    template: "%s | Kantor Hukum ATA & Rekan",
+    default: "ATA Law Firm",
+    template: "%s | ATA Law Firm",
   },
   description:
-    "Kantor Hukum ATA & Rekan, solusi hukum profesional di Majalengka, Jawa Barat. Melayani berbagai bidang hukum sejak 2013.",
+    "ATA Law Firm, solusi hukum profesional di Majalengka, Jawa Barat. Melayani berbagai bidang hukum dengan pendekatan yang cermat dan profesional.",
 };
 
 export default function RootLayout({

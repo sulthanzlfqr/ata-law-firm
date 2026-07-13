@@ -57,7 +57,7 @@ export default async function BerandaPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-6">
-                Kantor Hukum ATA &amp; Rekan · Berdiri 2013
+                ATA Law Firm · Majalengka, Jawa Barat
               </p>
               <h1 className="font-display text-ivory text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
                 Solusi Hukum yang Andal dan Profesional
@@ -103,10 +103,10 @@ export default async function BerandaPage() {
                 Pengacara Berpengalaman, Solusi Nyata
               </h2>
               <p className="font-body text-navy-900/70 text-base leading-relaxed mb-8">
-                Sejak 2013, Kantor Hukum ATA &amp; Rekan telah memberikan
-                pelayanan hukum yang komprehensif kepada klien perorangan
-                maupun korporat di wilayah Jawa Barat dan sekitarnya.
-                Kepercayaan klien adalah fondasi utama praktik kami.
+                ATA Law Firm telah memberikan pelayanan hukum yang
+                komprehensif kepada klien perorangan maupun korporat di
+                wilayah Jawa Barat dan sekitarnya. Kepercayaan klien adalah
+                fondasi utama praktik kami.
               </p>
               <Link
                 href="/tentang"
@@ -117,9 +117,8 @@ export default async function BerandaPage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { nilai: "11+", label: "Tahun Beroperasi" },
                 { nilai: "11", label: "Bidang Praktik" },
                 { nilai: "5", label: "Advokat & Profesional" },
                 { nilai: "100%", label: "Transparansi Biaya" },

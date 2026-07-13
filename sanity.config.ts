@@ -7,7 +7,7 @@ const singletonTypes = new Set(["siteSettings", "halamanTentang"]);
 
 export default defineConfig({
   name: "default",
-  title: "ATA & Rekan CMS",
+  title: "ATA Law Firm CMS",
 
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
@@ -17,7 +17,7 @@ export default defineConfig({
     structureTool({
       structure: (S) =>
         S.list()
-          .title("Konten ATA & Rekan")
+          .title("Konten ATA Law Firm")
           .items([
             S.listItem()
               .title("Pengaturan Situs")

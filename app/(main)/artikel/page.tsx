@@ -14,7 +14,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Artikel",
   description:
-    "Wawasan dan informasi hukum terkini dari Kantor Hukum ATA & Rekan.",
+    "Wawasan dan informasi hukum terkini dari ATA Law Firm.",
 };
 
 type Artikel = {

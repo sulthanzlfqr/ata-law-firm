@@ -8,7 +8,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Kontak",
   description:
-    "Hubungi Kantor Hukum ATA & Rekan untuk konsultasi hukum Anda.",
+    "Hubungi ATA Law Firm untuk konsultasi hukum Anda.",
 };
 
 type BidangItem = {

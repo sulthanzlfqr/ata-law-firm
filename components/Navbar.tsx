@@ -24,7 +24,7 @@ export default function Navbar() {
           href="/"
           className="font-display text-ivory font-semibold text-lg leading-tight tracking-tight"
         >
-          ATA &amp; Rekan
+          ATA Law Firm
         </Link>
 
         <ul className="hidden md:flex items-center gap-1">
