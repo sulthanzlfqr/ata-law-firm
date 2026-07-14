@@ -8,6 +8,8 @@ import {
   bidangPraktikListQuery,
 } from "@/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
+import { Reveal } from "@/components/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 
 export const revalidate = 3600;
 
@@ -73,19 +75,21 @@ export default async function ArtikelPage({
     <>
       <section className="bg-ivory py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
-            Wawasan Hukum
-          </p>
-          <h1 className="font-display text-navy-950 text-4xl md:text-5xl font-semibold leading-tight">
-            Artikel &amp; Insight
-          </h1>
+          <Reveal duration={650} y={16}>
+            <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+              Wawasan Hukum
+            </p>
+            <h1 className="font-display text-navy-950 text-4xl md:text-5xl font-semibold leading-tight">
+              Artikel &amp; Insight
+            </h1>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-ivory border-t border-navy-950/5 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {kategoriList.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-8 pb-10">
+            <Reveal as="div" className="flex flex-wrap gap-2 pt-8 pb-10" y={8} duration={400}>
               <Link
                 href="/artikel"
                 className={`font-label text-xs px-3 py-1.5 rounded-full border transition-colors ${
@@ -109,7 +113,7 @@ export default async function ArtikelPage({
                   {k.judul}
                 </Link>
               ))}
-            </div>
+            </Reveal>
           )}
 
           {artikel.length === 0 ? (
@@ -118,54 +122,55 @@ export default async function ArtikelPage({
             </p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {artikel.map((a) => (
-                <Link
-                  key={a.slug}
-                  href={`/artikel/${a.slug}`}
-                  className="group flex flex-col gap-4"
-                >
-                  <div className="aspect-video rounded-lg overflow-hidden bg-navy-900/10">
-                    {a.gambarSampul ? (
-                      <Image
-                        src={urlForImage(a.gambarSampul)
-                          .width(600)
-                          .height(340)
-                          .url()}
-                        alt={a.gambarSampul.alt || a.judul}
-                        width={600}
-                        height={340}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-navy-900/15" />
-                    )}
-                  </div>
+              {artikel.map((a, i) => (
+                <Reveal key={a.slug} delay={staggerDelay(i)}>
+                  <Link
+                    href={`/artikel/${a.slug}`}
+                    className="group flex flex-col gap-4"
+                  >
+                    <div className="aspect-video rounded-lg overflow-hidden bg-navy-900/10">
+                      {a.gambarSampul ? (
+                        <Image
+                          src={urlForImage(a.gambarSampul)
+                            .width(600)
+                            .height(340)
+                            .url()}
+                          alt={a.gambarSampul.alt || a.judul}
+                          width={600}
+                          height={340}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-navy-900/15" />
+                      )}
+                    </div>
 
-                  {a.kategori && (
-                    <p className="font-label text-xs text-terracotta uppercase tracking-wide">
-                      {a.kategori.judul}
-                    </p>
-                  )}
-
-                  <h2 className="font-display text-navy-950 font-medium leading-snug group-hover:text-terracotta transition-colors line-clamp-2">
-                    {a.judul}
-                  </h2>
-
-                  <p className="font-body text-sm text-navy-900/60 leading-relaxed line-clamp-3">
-                    {a.ringkasan}
-                  </p>
-
-                  <div className="flex items-center justify-between mt-auto">
-                    {a.penulis && (
-                      <p className="font-label text-xs text-navy-900/40">
-                        {a.penulis.nama}
+                    {a.kategori && (
+                      <p className="font-label text-xs text-terracotta uppercase tracking-wide">
+                        {a.kategori.judul}
                       </p>
                     )}
-                    <p className="font-label text-xs text-navy-900/40">
-                      {formatTanggal(a.tanggalPublikasi)}
+
+                    <h2 className="font-display text-navy-950 font-medium leading-snug group-hover:text-terracotta transition-colors line-clamp-2">
+                      {a.judul}
+                    </h2>
+
+                    <p className="font-body text-sm text-navy-900/60 leading-relaxed line-clamp-3">
+                      {a.ringkasan}
                     </p>
-                  </div>
-                </Link>
+
+                    <div className="flex items-center justify-between mt-auto">
+                      {a.penulis && (
+                        <p className="font-label text-xs text-navy-900/40">
+                          {a.penulis.nama}
+                        </p>
+                      )}
+                      <p className="font-label text-xs text-navy-900/40">
+                        {formatTanggal(a.tanggalPublikasi)}
+                      </p>
+                    </div>
+                  </Link>
+                </Reveal>
               ))}
             </div>
           )}

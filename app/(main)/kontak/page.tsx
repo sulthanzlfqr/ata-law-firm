@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import { bidangPraktikListQuery } from "@/lib/queries";
 import ContactForm from "@/components/ContactForm";
+import { Reveal } from "@/components/Reveal";
 
 export const revalidate = 3600;
 
@@ -44,32 +45,34 @@ export default async function KontakPage() {
     <>
       <section className="bg-navy-950 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
-            Hubungi Kami
-          </p>
-          <h1 className="font-display text-ivory text-4xl md:text-5xl font-semibold leading-tight mb-4">
-            Kami Siap Membantu
-          </h1>
-          <p className="font-body text-blue-pale text-lg max-w-xl">
-            Ceritakan permasalahan hukum Anda. Tim kami akan menghubungi Anda
-            dalam 1×24 jam kerja.
-          </p>
+          <Reveal duration={650} y={16}>
+            <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+              Hubungi Kami
+            </p>
+            <h1 className="font-display text-ivory text-4xl md:text-5xl font-semibold leading-tight mb-4">
+              Kami Siap Membantu
+            </h1>
+            <p className="font-body text-blue-pale text-lg max-w-xl">
+              Ceritakan permasalahan hukum Anda. Tim kami akan menghubungi Anda
+              dalam 1×24 jam kerja.
+            </p>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-navy-950 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 pt-0">
-            <div className="lg:col-span-3">
+            <Reveal as="div" className="lg:col-span-3" y={8} duration={400}>
               <div className="bg-navy-900/50 border border-white/5 rounded-xl p-6 md:p-8">
                 <h2 className="font-display text-ivory text-xl font-semibold mb-6">
                   Kirim Pesan
                 </h2>
                 <ContactForm bidangPraktikList={bidangPraktikList} />
               </div>
-            </div>
+            </Reveal>
 
-            <div className="lg:col-span-2 flex flex-col gap-8">
+            <Reveal as="div" className="lg:col-span-2 flex flex-col gap-8" y={8} duration={400} delay={80}>
               <div>
                 <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-5">
                   Informasi Kantor
@@ -136,7 +139,7 @@ export default async function KontakPage() {
                 </svg>
                 Hubungi via WhatsApp
               </a>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

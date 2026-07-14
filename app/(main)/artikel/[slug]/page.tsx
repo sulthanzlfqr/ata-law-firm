@@ -6,6 +6,7 @@ import { PortableText } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { artikelDetailQuery } from "@/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
+import { Reveal } from "@/components/Reveal";
 
 export const revalidate = 3600;
 
@@ -155,61 +156,63 @@ export default async function ArtikelDetailPage({
     <>
       <section className="bg-ivory pt-12 pb-0">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/artikel"
-            className="font-label text-xs text-navy-900/40 hover:text-navy-950 transition-colors inline-flex items-center gap-1 mb-8"
-          >
-            ← Kembali ke Artikel
-          </Link>
-
-          {data.kategori && (
+          <Reveal as="div" duration={650} y={16}>
             <Link
-              href={`/artikel?kategori=${data.kategori.slug}`}
-              className="font-label text-xs text-terracotta uppercase tracking-wide mb-4 block"
+              href="/artikel"
+              className="font-label text-xs text-navy-900/40 hover:text-navy-950 transition-colors inline-flex items-center gap-1 mb-8"
             >
-              {data.kategori.judul}
+              ← Kembali ke Artikel
             </Link>
-          )}
 
-          <h1 className="font-display text-navy-950 text-3xl md:text-4xl font-semibold leading-tight mb-6">
-            {data.judul}
-          </h1>
-
-          <p className="font-body text-navy-900/60 text-lg leading-relaxed mb-8">
-            {data.ringkasan}
-          </p>
-
-          <div className="flex items-center gap-4 pb-8 border-b border-navy-950/10">
-            {data.penulis && (
-              <div className="flex items-center gap-3">
-                {data.penulis.foto && (
-                  <div className="w-10 h-10 rounded-full overflow-hidden bg-navy-900/10 shrink-0">
-                    <Image
-                      src={urlForImage(data.penulis.foto)
-                        .width(80)
-                        .height(80)
-                        .url()}
-                      alt={data.penulis.nama}
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-                <div>
-                  <p className="font-body text-sm text-navy-950 font-medium">
-                    {data.penulis.nama}
-                  </p>
-                  <p className="font-label text-xs text-navy-900/40">
-                    {data.penulis.jabatan}
-                  </p>
-                </div>
-              </div>
+            {data.kategori && (
+              <Link
+                href={`/artikel?kategori=${data.kategori.slug}`}
+                className="font-label text-xs text-terracotta uppercase tracking-wide mb-4 block"
+              >
+                {data.kategori.judul}
+              </Link>
             )}
-            <p className="font-label text-xs text-navy-900/40 ml-auto">
-              {formatTanggal(data.tanggalPublikasi)}
+
+            <h1 className="font-display text-navy-950 text-3xl md:text-4xl font-semibold leading-tight mb-6">
+              {data.judul}
+            </h1>
+
+            <p className="font-body text-navy-900/60 text-lg leading-relaxed mb-8">
+              {data.ringkasan}
             </p>
-          </div>
+
+            <div className="flex items-center gap-4 pb-8 border-b border-navy-950/10">
+              {data.penulis && (
+                <div className="flex items-center gap-3">
+                  {data.penulis.foto && (
+                    <div className="w-10 h-10 rounded-full overflow-hidden bg-navy-900/10 shrink-0">
+                      <Image
+                        src={urlForImage(data.penulis.foto)
+                          .width(80)
+                          .height(80)
+                          .url()}
+                        alt={data.penulis.nama}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <p className="font-body text-sm text-navy-950 font-medium">
+                      {data.penulis.nama}
+                    </p>
+                    <p className="font-label text-xs text-navy-900/40">
+                      {data.penulis.jabatan}
+                    </p>
+                  </div>
+                </div>
+              )}
+              <p className="font-label text-xs text-navy-900/40 ml-auto">
+                {formatTanggal(data.tanggalPublikasi)}
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -229,12 +232,19 @@ export default async function ArtikelDetailPage({
 
       <section className="bg-ivory py-10 pb-20 md:pb-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <PortableText
-            value={data.isi as Parameters<typeof PortableText>[0]["value"]}
-            components={portableTextComponents}
-          />
+          <Reveal as="div">
+            <PortableText
+              value={data.isi as Parameters<typeof PortableText>[0]["value"]}
+              components={portableTextComponents}
+            />
+          </Reveal>
 
-          <div className="mt-14 pt-8 border-t border-navy-950/10 bg-navy-950 rounded-xl p-8">
+          <Reveal
+            as="div"
+            className="mt-14 pt-8 border-t border-navy-950/10 bg-navy-950 rounded-xl p-8"
+            y={8}
+            duration={400}
+          >
             <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-3">
               Butuh Konsultasi?
             </p>
@@ -249,7 +259,7 @@ export default async function ArtikelDetailPage({
             >
               Hubungi via WhatsApp
             </a>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

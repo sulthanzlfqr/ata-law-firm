@@ -9,6 +9,8 @@ import {
 } from "@/lib/queries";
 import { getAreaIcon } from "@/lib/areaIcons";
 import { HeroIllustration } from "@/components/HeroIllustration";
+import { Reveal } from "@/components/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 
 export const revalidate = 3600;
 
@@ -55,7 +57,7 @@ export default async function BerandaPage() {
       <section className="bg-navy-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <Reveal duration={850} y={20}>
               <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-6">
                 ATA Law Firm · Majalengka, Jawa Barat
               </p>
@@ -83,11 +85,17 @@ export default async function BerandaPage() {
                   Lihat Bidang Praktik
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="flex justify-center lg:justify-end">
+            <Reveal
+              className="flex justify-center lg:justify-end"
+              duration={800}
+              delay={200}
+              y={16}
+              scale={0.96}
+            >
               <HeroIllustration className="max-w-[220px] sm:max-w-xs lg:max-w-sm w-full" />
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -95,7 +103,7 @@ export default async function BerandaPage() {
       <section className="bg-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div>
+            <Reveal duration={650} y={16}>
               <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
                 Tentang Kami
               </p>
@@ -115,17 +123,19 @@ export default async function BerandaPage() {
                 Pelajari Lebih Lanjut
                 <span aria-hidden>→</span>
               </Link>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { nilai: "11", label: "Bidang Praktik" },
                 { nilai: "5", label: "Advokat & Profesional" },
                 { nilai: "100%", label: "Transparansi Biaya" },
-              ].map((stat) => (
-                <div
+              ].map((stat, i) => (
+                <Reveal
                   key={stat.label}
+                  as="div"
                   className="bg-navy-950 rounded-lg p-6 flex flex-col gap-2"
+                  delay={staggerDelay(i)}
                 >
                   <p className="font-label text-3xl font-medium text-terracotta">
                     {stat.nilai}
@@ -133,7 +143,7 @@ export default async function BerandaPage() {
                   <p className="font-body text-sm text-blue-pale">
                     {stat.label}
                   </p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -142,7 +152,12 @@ export default async function BerandaPage() {
 
       <section className="bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <Reveal
+            as="div"
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
+            duration={650}
+            y={16}
+          >
             <div>
               <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
                 Layanan Kami
@@ -157,7 +172,7 @@ export default async function BerandaPage() {
             >
               Lihat semua →
             </Link>
-          </div>
+          </Reveal>
 
           {bidangPraktik.length === 0 ? (
             <p className="font-body text-blue-pale/60 text-center py-12">
@@ -165,26 +180,27 @@ export default async function BerandaPage() {
             </p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded-lg overflow-hidden">
-              {bidangPraktik.slice(0, 6).map((b) => {
+              {bidangPraktik.slice(0, 6).map((b, i) => {
                 const Icon = getAreaIcon(b.slug);
                 return (
-                  <Link
-                    key={b.slug}
-                    href={`/bidang-praktik/${b.slug}`}
-                    className="group bg-navy-900 hover:bg-navy-950 transition-colors p-6 flex flex-col gap-4"
-                  >
-                    <div className="w-10 h-10 text-terracotta">
-                      <Icon className="w-full h-full" />
-                    </div>
-                    <div>
-                      <p className="font-display text-ivory font-medium mb-2 group-hover:text-terracotta transition-colors">
-                        {b.judul}
-                      </p>
-                      <p className="font-body text-sm text-blue-pale leading-relaxed line-clamp-2">
-                        {b.deskripsiSingkat}
-                      </p>
-                    </div>
-                  </Link>
+                  <Reveal key={b.slug} delay={staggerDelay(i)}>
+                    <Link
+                      href={`/bidang-praktik/${b.slug}`}
+                      className="group bg-navy-900 hover:bg-navy-950 transition-colors p-6 flex flex-col gap-4 h-full"
+                    >
+                      <div className="w-10 h-10 text-terracotta">
+                        <Icon className="w-full h-full" />
+                      </div>
+                      <div>
+                        <p className="font-display text-ivory font-medium mb-2 group-hover:text-terracotta transition-colors">
+                          {b.judul}
+                        </p>
+                        <p className="font-body text-sm text-blue-pale leading-relaxed line-clamp-2">
+                          {b.deskripsiSingkat}
+                        </p>
+                      </div>
+                    </Link>
+                  </Reveal>
                 );
               })}
             </div>
@@ -194,7 +210,10 @@ export default async function BerandaPage() {
 
       <section className="bg-navy-900 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <Reveal
+            as="div"
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
+          >
             <div className="max-w-xl">
               <p className="font-label text-xs uppercase tracking-widest text-blue-light mb-4">
                 Edukasi Hukum
@@ -214,7 +233,7 @@ export default async function BerandaPage() {
             >
               Lihat semua →
             </Link>
-          </div>
+          </Reveal>
 
           {artikelUnggulan.length === 0 ? (
             <p className="font-label text-sm text-[#5A719A] text-center py-14">
@@ -222,27 +241,28 @@ export default async function BerandaPage() {
             </p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {artikelUnggulan.map((a) => (
-                <Link
-                  key={a.slug}
-                  href={`/artikel/${a.slug}`}
-                  className="group bg-white/5 border border-white/10 rounded-lg p-6 flex flex-col gap-4 hover:bg-white/10 transition-colors"
-                >
-                  {a.kategori && (
-                    <p className="font-label text-xs text-terracotta uppercase tracking-wide">
-                      {a.kategori.judul}
+              {artikelUnggulan.map((a, i) => (
+                <Reveal key={a.slug} delay={staggerDelay(i)}>
+                  <Link
+                    href={`/artikel/${a.slug}`}
+                    className="group bg-white/5 border border-white/10 rounded-lg p-6 flex flex-col gap-4 hover:bg-white/10 transition-colors h-full"
+                  >
+                    {a.kategori && (
+                      <p className="font-label text-xs text-terracotta uppercase tracking-wide">
+                        {a.kategori.judul}
+                      </p>
+                    )}
+                    <h3 className="font-display text-ivory font-medium leading-snug group-hover:text-terracotta transition-colors line-clamp-2">
+                      {a.judul}
+                    </h3>
+                    <p className="font-body text-sm text-[#93A5C4] leading-relaxed line-clamp-3 flex-1">
+                      {a.ringkasan}
                     </p>
-                  )}
-                  <h3 className="font-display text-ivory font-medium leading-snug group-hover:text-terracotta transition-colors line-clamp-2">
-                    {a.judul}
-                  </h3>
-                  <p className="font-body text-sm text-[#93A5C4] leading-relaxed line-clamp-3 flex-1">
-                    {a.ringkasan}
-                  </p>
-                  <span className="font-label text-xs text-terracotta mt-auto">
-                    Baca selengkapnya →
-                  </span>
-                </Link>
+                    <span className="font-label text-xs text-terracotta mt-auto">
+                      Baca selengkapnya →
+                    </span>
+                  </Link>
+                </Reveal>
               ))}
             </div>
           )}
@@ -252,7 +272,12 @@ export default async function BerandaPage() {
       {tim.length > 0 && (
         <section className="bg-ivory border-t border-navy-950/5">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <Reveal
+              as="div"
+              className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
+              duration={650}
+              y={16}
+            >
               <div>
                 <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
                   Tim Kami
@@ -267,11 +292,16 @@ export default async function BerandaPage() {
               >
                 Kenali tim kami →
               </Link>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-              {tim.slice(0, 5).map((anggota) => (
-                <div key={anggota.slug} className="flex flex-col gap-3 text-center">
+              {tim.slice(0, 5).map((anggota, i) => (
+                <Reveal
+                  key={anggota.slug}
+                  as="div"
+                  className="flex flex-col gap-3 text-center"
+                  delay={staggerDelay(i)}
+                >
                   <div className="aspect-square rounded-lg overflow-hidden bg-navy-900/10 mx-auto w-full max-w-36">
                     {anggota.foto ? (
                       <Image
@@ -293,7 +323,7 @@ export default async function BerandaPage() {
                       {anggota.jabatan}
                     </p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -303,7 +333,7 @@ export default async function BerandaPage() {
       <section className="bg-navy-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div>
+            <Reveal duration={650} y={16}>
               <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
                 Hubungi Kami
               </p>
@@ -322,7 +352,7 @@ export default async function BerandaPage() {
               >
                 Konsultasi Sekarang
               </a>
-            </div>
+            </Reveal>
 
             <div className="flex flex-col gap-5">
               {[
@@ -345,8 +375,15 @@ export default async function BerandaPage() {
                   label: "Jam Operasional",
                   value: "Senin – Jumat, 09.00 – 17.00 WIB",
                 },
-              ].map((item) => (
-                <div key={item.label} className="flex gap-4">
+              ].map((item, i) => (
+                <Reveal
+                  key={item.label}
+                  as="div"
+                  className="flex gap-4"
+                  y={8}
+                  duration={400}
+                  delay={staggerDelay(i, 60)}
+                >
                   <p className="font-label text-xs text-terracotta uppercase tracking-wide w-28 shrink-0 pt-0.5">
                     {item.label}
                   </p>
@@ -362,7 +399,7 @@ export default async function BerandaPage() {
                   ) : (
                     <p className="font-body text-sm text-blue-pale">{item.value}</p>
                   )}
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

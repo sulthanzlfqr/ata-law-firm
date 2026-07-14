@@ -6,6 +6,7 @@ import { client } from "@/sanity/lib/client";
 import { bidangPraktikDetailQuery } from "@/lib/queries";
 import { getAreaIcon } from "@/lib/areaIcons";
 import { ProseContent } from "@/components/ProseContent";
+import { Reveal } from "@/components/Reveal";
 
 export const revalidate = 3600;
 
@@ -58,42 +59,46 @@ export default async function BidangPraktikDetailPage({
     <>
       <section className="bg-navy-950 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/bidang-praktik"
-            className="font-label text-xs text-blue-pale hover:text-ivory transition-colors mb-8 inline-flex items-center gap-1"
-          >
-            ← Semua Bidang Praktik
-          </Link>
-          <div className="flex items-start gap-5 mt-6">
-            <div className="w-12 h-12 text-terracotta shrink-0 mt-1">
-              <Icon className="w-full h-full" />
+          <Reveal duration={650} y={16}>
+            <Link
+              href="/bidang-praktik"
+              className="font-label text-xs text-blue-pale hover:text-ivory transition-colors mb-8 inline-flex items-center gap-1"
+            >
+              ← Semua Bidang Praktik
+            </Link>
+            <div className="flex items-start gap-5 mt-6">
+              <div className="w-12 h-12 text-terracotta shrink-0 mt-1">
+                <Icon className="w-full h-full" />
+              </div>
+              <div>
+                <h1 className="font-display text-ivory text-4xl md:text-5xl font-semibold leading-tight">
+                  {data.judul}
+                </h1>
+              </div>
             </div>
-            <div>
-              <h1 className="font-display text-ivory text-4xl md:text-5xl font-semibold leading-tight">
-                {data.judul}
-              </h1>
-            </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-ivory py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-body text-navy-900/70 text-lg leading-relaxed mb-10 border-l-4 border-terracotta pl-6">
-            {data.deskripsiSingkat}
-          </p>
-
-          {data.deskripsiLengkap && data.deskripsiLengkap.length > 0 ? (
-            <ProseContent
-              value={data.deskripsiLengkap as Parameters<typeof PortableText>[0]["value"]}
-            />
-          ) : (
-            <p className="font-body text-navy-900/40 italic">
-              Deskripsi lengkap belum tersedia.
+          <Reveal as="div">
+            <p className="font-body text-navy-900/70 text-lg leading-relaxed mb-10 border-l-4 border-terracotta pl-6">
+              {data.deskripsiSingkat}
             </p>
-          )}
 
-          <div className="mt-14 pt-8 border-t border-navy-950/10">
+            {data.deskripsiLengkap && data.deskripsiLengkap.length > 0 ? (
+              <ProseContent
+                value={data.deskripsiLengkap as Parameters<typeof PortableText>[0]["value"]}
+              />
+            ) : (
+              <p className="font-body text-navy-900/40 italic">
+                Deskripsi lengkap belum tersedia.
+              </p>
+            )}
+          </Reveal>
+
+          <Reveal as="div" className="mt-14 pt-8 border-t border-navy-950/10" y={8} duration={400}>
             <p className="font-body text-navy-950 font-medium mb-4">
               Butuh bantuan di bidang {data.judul.toLowerCase()}?
             </p>
@@ -105,7 +110,7 @@ export default async function BidangPraktikDetailPage({
             >
               Konsultasi via WhatsApp
             </a>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

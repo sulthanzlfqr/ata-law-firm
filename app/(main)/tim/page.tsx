@@ -3,6 +3,8 @@ import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { timListQuery } from "@/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
+import { Reveal } from "@/components/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 
 export const revalidate = 3600;
 
@@ -43,16 +45,18 @@ export default async function TimPage() {
     <>
       <section className="bg-ivory py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
-            Tim Kami
-          </p>
-          <h1 className="font-display text-navy-950 text-4xl md:text-5xl font-semibold leading-tight mb-4">
-            Advokat &amp; Profesional
-          </h1>
-          <p className="font-body text-navy-900/60 text-lg max-w-xl">
-            Tim kami terdiri dari advokat berpengalaman yang berdedikasi untuk
-            memberikan layanan hukum terbaik bagi setiap klien.
-          </p>
+          <Reveal duration={650} y={16}>
+            <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+              Tim Kami
+            </p>
+            <h1 className="font-display text-navy-950 text-4xl md:text-5xl font-semibold leading-tight mb-4">
+              Advokat &amp; Profesional
+            </h1>
+            <p className="font-body text-navy-900/60 text-lg max-w-xl">
+              Tim kami terdiri dari advokat berpengalaman yang berdedikasi untuk
+              memberikan layanan hukum terbaik bagi setiap klien.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -65,11 +69,13 @@ export default async function TimPage() {
           ) : (
             <div className="flex flex-col divide-y divide-navy-950/5">
               {tim.map((anggota, i) => (
-                <div
+                <Reveal
                   key={anggota.slug}
+                  as="div"
                   className={`flex flex-col md:flex-row gap-8 py-12 ${
                     i % 2 === 1 ? "md:flex-row-reverse" : ""
                   }`}
+                  delay={staggerDelay(i, 60, 300)}
                 >
                   <div className="md:w-56 lg:w-64 shrink-0">
                     <div className="aspect-square rounded-xl overflow-hidden bg-navy-900/10">
@@ -137,7 +143,7 @@ export default async function TimPage() {
                       )}
                     </div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           )}

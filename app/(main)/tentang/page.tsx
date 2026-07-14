@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ProseContent } from "@/components/ProseContent";
 import { client } from "@/sanity/lib/client";
 import { halamanTentangQuery } from "@/lib/queries";
+import { Reveal } from "@/components/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 
 export const revalidate = 3600;
 
@@ -40,12 +42,14 @@ export default async function TentangPage() {
     <>
       <section className="bg-navy-950 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
-            {data?.labelEyebrow ?? "Tentang Kami"}
-          </p>
-          <h1 className="font-display text-ivory text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">
-            {data?.judul ?? "ATA Law Firm"}
-          </h1>
+          <Reveal duration={650} y={16}>
+            <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+              {data?.labelEyebrow ?? "Tentang Kami"}
+            </p>
+            <h1 className="font-display text-ivory text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">
+              {data?.judul ?? "ATA Law Firm"}
+            </h1>
+          </Reveal>
         </div>
       </section>
 
@@ -53,19 +57,24 @@ export default async function TentangPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {data?.statistik && data.statistik.length > 0 && (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-              {data.statistik.map((s) => (
-                <div key={s.label} className="bg-navy-950 rounded-lg p-6">
+              {data.statistik.map((s, i) => (
+                <Reveal
+                  key={s.label}
+                  as="div"
+                  className="bg-navy-950 rounded-lg p-6"
+                  delay={staggerDelay(i)}
+                >
                   <p className="font-label text-3xl font-medium text-terracotta mb-1">
                     {s.nilai}
                   </p>
                   <p className="font-body text-sm text-blue-pale">{s.label}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           )}
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2">
+            <Reveal as="div" className="lg:col-span-2">
               <h2 className="font-display text-navy-950 text-2xl font-semibold mb-6">
                 Sejarah &amp; Cerita Kami
               </h2>
@@ -76,11 +85,11 @@ export default async function TentangPage() {
                   Konten belum tersedia.
                 </p>
               )}
-            </div>
+            </Reveal>
 
             <div className="flex flex-col gap-8">
               {data?.poinKredibilitas && data.poinKredibilitas.length > 0 && (
-                <div>
+                <Reveal as="div" delay={80}>
                   <h3 className="font-display text-navy-950 text-lg font-semibold mb-4">
                     Mengapa Memilih Kami
                   </h3>
@@ -113,22 +122,22 @@ export default async function TentangPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </Reveal>
               )}
 
               {data?.visi && (
-                <div>
+                <Reveal as="div" delay={140}>
                   <h3 className="font-display text-navy-950 text-lg font-semibold mb-3">
                     Visi
                   </h3>
                   <p className="font-body text-sm text-navy-900/70 leading-relaxed italic border-l-2 border-terracotta pl-4">
                     {data.visi}
                   </p>
-                </div>
+                </Reveal>
               )}
 
               {data?.misi && data.misi.length > 0 && (
-                <div>
+                <Reveal as="div" delay={200}>
                   <h3 className="font-display text-navy-950 text-lg font-semibold mb-3">
                     Misi
                   </h3>
@@ -144,7 +153,7 @@ export default async function TentangPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </Reveal>
               )}
             </div>
           </div>

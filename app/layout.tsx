@@ -38,7 +38,12 @@ export default function RootLayout({
       lang="id"
       className={`${fraunces.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
-      <body className="min-h-dvh flex flex-col">{children}</body>
+      <body className="min-h-dvh flex flex-col">
+        <noscript>
+          <style>{`.reveal { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }
