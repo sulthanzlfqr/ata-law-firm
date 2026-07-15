@@ -45,7 +45,7 @@ export default async function KontakPage() {
     <>
       <section className="bg-navy-950 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal duration={650} y={16}>
+          <Reveal duration={950} y={16}>
             <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
               Hubungi Kami
             </p>
@@ -63,7 +63,7 @@ export default async function KontakPage() {
       <section className="bg-navy-950 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 pt-0">
-            <Reveal as="div" className="lg:col-span-3" y={8} duration={400}>
+            <Reveal as="div" className="lg:col-span-3" y={8} duration={580}>
               <div className="bg-navy-900/50 border border-white/5 rounded-xl p-6 md:p-8">
                 <h2 className="font-display text-ivory text-xl font-semibold mb-6">
                   Kirim Pesan
@@ -72,7 +72,7 @@ export default async function KontakPage() {
               </div>
             </Reveal>
 
-            <Reveal as="div" className="lg:col-span-2 flex flex-col gap-8" y={8} duration={400} delay={80}>
+            <Reveal as="div" className="lg:col-span-2 flex flex-col gap-8" y={8} duration={580} delay={120}>
               <div>
                 <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-5">
                   Informasi Kantor

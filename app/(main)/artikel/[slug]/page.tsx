@@ -156,7 +156,7 @@ export default async function ArtikelDetailPage({
     <>
       <section className="bg-ivory pt-12 pb-0">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal as="div" duration={650} y={16}>
+          <Reveal as="div" duration={950} y={16}>
             <Link
               href="/artikel"
               className="font-label text-xs text-navy-900/40 hover:text-navy-950 transition-colors inline-flex items-center gap-1 mb-8"
@@ -243,7 +243,7 @@ export default async function ArtikelDetailPage({
             as="div"
             className="mt-14 pt-8 border-t border-navy-950/10 bg-navy-950 rounded-xl p-8"
             y={8}
-            duration={400}
+            duration={580}
           >
             <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-3">
               Butuh Konsultasi?

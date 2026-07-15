@@ -57,7 +57,7 @@ export default async function BerandaPage() {
       <section className="bg-navy-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <Reveal duration={850} y={20}>
+            <Reveal duration={1250} y={20}>
               <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-6">
                 ATA Law Firm · Majalengka, Jawa Barat
               </p>
@@ -89,8 +89,8 @@ export default async function BerandaPage() {
 
             <Reveal
               className="flex justify-center lg:justify-end"
-              duration={800}
-              delay={200}
+              duration={1150}
+              delay={290}
               y={16}
               scale={0.96}
             >
@@ -103,7 +103,7 @@ export default async function BerandaPage() {
       <section className="bg-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <Reveal duration={650} y={16}>
+            <Reveal duration={950} y={16}>
               <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
                 Tentang Kami
               </p>
@@ -155,7 +155,7 @@ export default async function BerandaPage() {
           <Reveal
             as="div"
             className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
-            duration={650}
+            duration={950}
             y={16}
           >
             <div>
@@ -275,7 +275,7 @@ export default async function BerandaPage() {
             <Reveal
               as="div"
               className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
-              duration={650}
+              duration={950}
               y={16}
             >
               <div>
@@ -333,7 +333,7 @@ export default async function BerandaPage() {
       <section className="bg-navy-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <Reveal duration={650} y={16}>
+            <Reveal duration={950} y={16}>
               <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
                 Hubungi Kami
               </p>
@@ -381,8 +381,8 @@ export default async function BerandaPage() {
                   as="div"
                   className="flex gap-4"
                   y={8}
-                  duration={400}
-                  delay={staggerDelay(i, 60)}
+                  duration={580}
+                  delay={staggerDelay(i, 80)}
                 >
                   <p className="font-label text-xs text-terracotta uppercase tracking-wide w-28 shrink-0 pt-0.5">
                     {item.label}

@@ -59,7 +59,7 @@ export default async function BidangPraktikDetailPage({
     <>
       <section className="bg-navy-950 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal duration={650} y={16}>
+          <Reveal duration={950} y={16}>
             <Link
               href="/bidang-praktik"
               className="font-label text-xs text-blue-pale hover:text-ivory transition-colors mb-8 inline-flex items-center gap-1"
@@ -98,7 +98,7 @@ export default async function BidangPraktikDetailPage({
             )}
           </Reveal>
 
-          <Reveal as="div" className="mt-14 pt-8 border-t border-navy-950/10" y={8} duration={400}>
+          <Reveal as="div" className="mt-14 pt-8 border-t border-navy-950/10" y={8} duration={580}>
             <p className="font-body text-navy-950 font-medium mb-4">
               Butuh bantuan di bidang {data.judul.toLowerCase()}?
             </p>

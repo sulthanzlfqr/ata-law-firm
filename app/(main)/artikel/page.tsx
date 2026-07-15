@@ -75,7 +75,7 @@ export default async function ArtikelPage({
     <>
       <section className="bg-ivory py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal duration={650} y={16}>
+          <Reveal duration={950} y={16}>
             <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
               Wawasan Hukum
             </p>
@@ -89,7 +89,7 @@ export default async function ArtikelPage({
       <section className="bg-ivory border-t border-navy-950/5 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {kategoriList.length > 0 && (
-            <Reveal as="div" className="flex flex-wrap gap-2 pt-8 pb-10" y={8} duration={400}>
+            <Reveal as="div" className="flex flex-wrap gap-2 pt-8 pb-10" y={8} duration={580}>
               <Link
                 href="/artikel"
                 className={`font-label text-xs px-3 py-1.5 rounded-full border transition-colors ${

@@ -45,7 +45,7 @@ export default async function TimPage() {
     <>
       <section className="bg-ivory py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal duration={650} y={16}>
+          <Reveal duration={950} y={16}>
             <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
               Tim Kami
             </p>
@@ -75,7 +75,7 @@ export default async function TimPage() {
                   className={`flex flex-col md:flex-row gap-8 py-12 ${
                     i % 2 === 1 ? "md:flex-row-reverse" : ""
                   }`}
-                  delay={staggerDelay(i, 60, 300)}
+                  delay={staggerDelay(i, 80, 430)}
                 >
                   <div className="md:w-56 lg:w-64 shrink-0">
                     <div className="aspect-square rounded-xl overflow-hidden bg-navy-900/10">

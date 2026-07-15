@@ -42,7 +42,7 @@ export default async function TentangPage() {
     <>
       <section className="bg-navy-950 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal duration={650} y={16}>
+          <Reveal duration={950} y={16}>
             <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
               {data?.labelEyebrow ?? "Tentang Kami"}
             </p>
@@ -89,7 +89,7 @@ export default async function TentangPage() {
 
             <div className="flex flex-col gap-8">
               {data?.poinKredibilitas && data.poinKredibilitas.length > 0 && (
-                <Reveal as="div" delay={80}>
+                <Reveal as="div" delay={120}>
                   <h3 className="font-display text-navy-950 text-lg font-semibold mb-4">
                     Mengapa Memilih Kami
                   </h3>
@@ -126,7 +126,7 @@ export default async function TentangPage() {
               )}
 
               {data?.visi && (
-                <Reveal as="div" delay={140}>
+                <Reveal as="div" delay={210}>
                   <h3 className="font-display text-navy-950 text-lg font-semibold mb-3">
                     Visi
                   </h3>
@@ -137,7 +137,7 @@ export default async function TentangPage() {
               )}
 
               {data?.misi && data.misi.length > 0 && (
-                <Reveal as="div" delay={200}>
+                <Reveal as="div" delay={300}>
                   <h3 className="font-display text-navy-950 text-lg font-semibold mb-3">
                     Misi
                   </h3>

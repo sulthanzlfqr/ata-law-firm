@@ -29,8 +29,8 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(var(--reveal-y, 12px)) scale(var(--reveal-scale, 1));
-  transition: opacity var(--reveal-duration, 500ms) cubic-bezier(0.16, 1, 0.3, 1),
-    transform var(--reveal-duration, 500ms) cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity var(--reveal-duration, 730ms) cubic-bezier(0.16, 1, 0.3, 1),
+    transform var(--reveal-duration, 730ms) cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }

@@ -41,7 +41,7 @@ export default async function BidangPraktikPage() {
     <>
       <section className="bg-navy-950 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal duration={650} y={16}>
+          <Reveal duration={950} y={16}>
             <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
               Layanan Kami
             </p>

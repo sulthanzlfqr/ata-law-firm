@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy-950 text-blue-pale">
-      <Reveal as="div" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" y={8} duration={350}>
+      <Reveal as="div" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" y={8} duration={500}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <p className="font-display text-ivory text-xl font-semibold mb-3">
