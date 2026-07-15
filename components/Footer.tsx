@@ -56,18 +56,18 @@ export default function Footer() {
                 Kabupaten Majalengka, Jawa Barat 45476
               </p>
               <a
-                href="mailto:info@ataandrekan.co.id"
+                href="mailto:info@atalawfirm.org"
                 className="hover:text-ivory transition-colors"
               >
-                info@ataandrekan.co.id
+                info@atalawfirm.org
               </a>
               <a
-                href="https://wa.me/6281320722147"
+                href="https://wa.me/6281223840395"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-ivory transition-colors"
               >
-                +62 813-2072-2147
+                +62 812-2384-0395
               </a>
             </address>
           </div>

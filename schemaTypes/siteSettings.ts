@@ -65,7 +65,7 @@ export default defineType({
       title: "Nomor WhatsApp",
       type: "string",
       description:
-        "Format internasional tanpa tanda plus, contoh: 6281320722147",
+        "Format internasional tanpa tanda plus, contoh: 6281223840395",
       validation: (Rule) =>
         Rule.required().regex(/^[0-9]+$/, { name: "nomor telepon" }),
     }),

@@ -71,12 +71,12 @@ export default async function BerandaPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://wa.me/6281320722147"
+                  href="https://wa.me/6281223840395"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-terracotta text-white font-body font-medium px-6 py-3 rounded hover:bg-terracotta/90 transition-colors"
                 >
-                  Konsultasi via WhatsApp
+                  Jadwalkan Konsultasi
                 </a>
                 <Link
                   href="/bidang-praktik"
@@ -345,7 +345,7 @@ export default async function BerandaPage() {
                 dan memberikan solusi terbaik untuk permasalahan hukum Anda.
               </p>
               <a
-                href="https://wa.me/6281320722147"
+                href="https://wa.me/6281223840395"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-terracotta text-white font-body font-medium px-6 py-3 rounded hover:bg-terracotta/90 transition-colors"
@@ -363,13 +363,13 @@ export default async function BerandaPage() {
                 },
                 {
                   label: "WhatsApp",
-                  value: "+62 813-2072-2147",
-                  href: "https://wa.me/6281320722147",
+                  value: "+62 812-2384-0395",
+                  href: "https://wa.me/6281223840395",
                 },
                 {
                   label: "Email",
-                  value: "info@ataandrekan.co.id",
-                  href: "mailto:info@ataandrekan.co.id",
+                  value: "info@atalawfirm.org",
+                  href: "mailto:info@atalawfirm.org",
                 },
                 {
                   label: "Jam Operasional",

@@ -252,7 +252,7 @@ export default async function ArtikelDetailPage({
               Kami Siap Membantu Anda
             </p>
             <a
-              href="https://wa.me/6281320722147"
+              href="https://wa.me/6281223840395"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-terracotta text-white font-body font-medium px-5 py-2.5 rounded hover:bg-terracotta/90 transition-colors"

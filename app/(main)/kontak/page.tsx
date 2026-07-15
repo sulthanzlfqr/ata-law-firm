@@ -86,13 +86,13 @@ export default async function KontakPage() {
                     },
                     {
                       label: "WhatsApp",
-                      value: "+62 813-2072-2147",
-                      href: "https://wa.me/6281320722147",
+                      value: "+62 812-2384-0395",
+                      href: "https://wa.me/6281223840395",
                     },
                     {
                       label: "Email",
-                      value: "info@ataandrekan.co.id",
-                      href: "mailto:info@ataandrekan.co.id",
+                      value: "info@atalawfirm.org",
+                      href: "mailto:info@atalawfirm.org",
                     },
                     {
                       label: "Jam Buka",
@@ -129,7 +129,7 @@ export default async function KontakPage() {
               </div>
 
               <a
-                href="https://wa.me/6281320722147"
+                href="https://wa.me/6281223840395"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 bg-terracotta text-white font-body font-medium px-6 py-4 rounded-lg hover:bg-terracotta/90 transition-colors"

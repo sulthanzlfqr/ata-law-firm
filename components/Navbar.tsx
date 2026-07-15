@@ -49,7 +49,7 @@ export default function Navbar() {
         </ul>
 
         <a
-          href="https://wa.me/6281320722147"
+          href="https://wa.me/6281223840395"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 bg-terracotta text-white text-sm font-body font-medium px-4 py-2 rounded hover:bg-terracotta/90 transition-colors"
@@ -96,7 +96,7 @@ export default function Navbar() {
             })}
           </ul>
           <a
-            href="https://wa.me/6281320722147"
+            href="https://wa.me/6281223840395"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 flex items-center justify-center bg-terracotta text-white text-sm font-body font-medium px-4 py-2 rounded hover:bg-terracotta/90 transition-colors"
