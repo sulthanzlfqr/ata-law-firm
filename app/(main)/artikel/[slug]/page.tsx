@@ -232,7 +232,7 @@ export default async function ArtikelDetailPage({
 
       <section className="bg-ivory py-10 pb-20 md:pb-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal as="div">
+          <Reveal as="div" threshold={0}>
             <PortableText
               value={data.isi as Parameters<typeof PortableText>[0]["value"]}
               components={portableTextComponents}

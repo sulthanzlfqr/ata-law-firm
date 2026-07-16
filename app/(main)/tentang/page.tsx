@@ -74,7 +74,7 @@ export default async function TentangPage() {
           )}
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <Reveal as="div" className="lg:col-span-2">
+            <Reveal as="div" className="lg:col-span-2" threshold={0}>
               <h2 className="font-display text-navy-950 text-2xl font-semibold mb-6">
                 Sejarah &amp; Cerita Kami
               </h2>

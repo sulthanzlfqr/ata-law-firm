@@ -82,7 +82,7 @@ export default async function BidangPraktikDetailPage({
 
       <section className="bg-ivory py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal as="div">
+          <Reveal as="div" threshold={0}>
             <p className="font-body text-navy-900/70 text-lg leading-relaxed mb-10 border-l-4 border-terracotta pl-6">
               {data.deskripsiSingkat}
             </p>
