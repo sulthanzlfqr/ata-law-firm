@@ -46,13 +46,13 @@ export default async function TimPage() {
       <section className="bg-ivory py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal duration={950} y={16}>
-            <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+            <p className="font-label text-xs uppercase tracking-widest text-gold mb-4">
               Tim Kami
             </p>
-            <h1 className="font-display text-navy-950 text-4xl md:text-5xl font-semibold leading-tight mb-4">
+            <h1 className="font-display text-maroon-950 text-4xl md:text-5xl font-semibold leading-tight mb-4">
               Advokat &amp; Profesional
             </h1>
-            <p className="font-body text-navy-900/60 text-lg max-w-xl">
+            <p className="font-body text-maroon-900/60 text-lg max-w-xl">
               Tim kami terdiri dari advokat berpengalaman yang berdedikasi untuk
               memberikan layanan hukum terbaik bagi setiap klien.
             </p>
@@ -60,14 +60,14 @@ export default async function TimPage() {
         </div>
       </section>
 
-      <section className="bg-ivory border-t border-navy-950/5 pb-20 md:pb-28">
+      <section className="bg-ivory border-t border-maroon-950/5 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {tim.length === 0 ? (
-            <p className="font-body text-navy-900/40 text-center py-12">
+            <p className="font-body text-maroon-900/40 text-center py-12">
               Data tim belum tersedia. Silakan tambahkan melalui Sanity Studio.
             </p>
           ) : (
-            <div className="flex flex-col divide-y divide-navy-950/5">
+            <div className="flex flex-col divide-y divide-maroon-950/5">
               {tim.map((anggota, i) => (
                 <Reveal
                   key={anggota.slug}
@@ -78,7 +78,7 @@ export default async function TimPage() {
                   delay={staggerDelay(i, 80, 430)}
                 >
                   <div className="md:w-56 lg:w-64 shrink-0">
-                    <div className="aspect-square rounded-xl overflow-hidden bg-navy-900/10">
+                    <div className="aspect-square rounded-xl overflow-hidden bg-maroon-900/10">
                       {anggota.foto ? (
                         <Image
                           src={urlForImage(anggota.foto)
@@ -91,23 +91,23 @@ export default async function TimPage() {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full bg-[#E3DFD3]" />
+                        <div className="w-full h-full bg-[#E8DCC8]" />
                       )}
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-4 flex-1">
                     <div>
-                      <h2 className="font-display text-navy-950 text-2xl font-semibold">
+                      <h2 className="font-display text-maroon-950 text-2xl font-semibold">
                         {anggota.nama}
                       </h2>
-                      <p className="font-label text-sm text-terracotta mt-1">
+                      <p className="font-label text-sm text-gold mt-1">
                         {anggota.jabatan}
                       </p>
                     </div>
 
                     {anggota.bio && (
-                      <p className="font-body text-navy-900/70 leading-relaxed">
+                      <p className="font-body text-maroon-900/70 leading-relaxed">
                         {anggota.bio}
                       </p>
                     )}
@@ -115,14 +115,14 @@ export default async function TimPage() {
                     <div className="flex flex-col gap-4 mt-2">
                       {anggota.pendidikan && anggota.pendidikan.length > 0 && (
                         <div>
-                          <p className="font-label text-xs uppercase tracking-wide text-navy-900/40 mb-2">
+                          <p className="font-label text-xs uppercase tracking-wide text-maroon-900/40 mb-2">
                             Pendidikan
                           </p>
                           <ul className="flex flex-col gap-1">
                             {anggota.pendidikan.map((p) => (
                               <li
                                 key={p}
-                                className="font-body text-sm text-navy-900/70"
+                                className="font-body text-sm text-maroon-900/70"
                               >
                                 {p}
                               </li>
@@ -133,10 +133,10 @@ export default async function TimPage() {
 
                       {anggota.nomorIzinAdvokat && (
                         <div>
-                          <p className="font-label text-xs uppercase tracking-wide text-navy-900/40 mb-1">
+                          <p className="font-label text-xs uppercase tracking-wide text-maroon-900/40 mb-1">
                             No. Izin Advokat
                           </p>
-                          <p className="font-label text-sm text-navy-950">
+                          <p className="font-label text-sm text-maroon-950">
                             {anggota.nomorIzinAdvokat}
                           </p>
                         </div>

@@ -18,7 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-navy-950/95 backdrop-blur-sm border-b border-white/5">
+    <header className="sticky top-0 z-50 bg-maroon-950/95 backdrop-blur-sm border-b border-white/5">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link
           href="/"
@@ -37,8 +37,8 @@ export default function Navbar() {
                   href={href}
                   className={`px-3 py-1.5 rounded text-sm font-body transition-colors ${
                     active
-                      ? "text-terracotta"
-                      : "text-blue-pale hover:text-ivory"
+                      ? "text-gold"
+                      : "text-sand hover:text-ivory"
                   }`}
                 >
                   {label}
@@ -52,7 +52,7 @@ export default function Navbar() {
           href="https://wa.me/6281223840395"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 bg-terracotta text-white text-sm font-body font-medium px-4 py-2 rounded hover:bg-terracotta/90 transition-colors"
+          className="hidden md:inline-flex items-center gap-2 bg-gold text-white text-sm font-body font-medium px-4 py-2 rounded hover:bg-gold/90 transition-colors"
         >
           Konsultasi
         </a>
@@ -73,7 +73,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="md:hidden bg-navy-950 border-t border-white/5 px-4 pb-4">
+        <div className="md:hidden bg-maroon-950 border-t border-white/5 px-4 pb-4">
           <ul className="flex flex-col gap-1 pt-2">
             {navLinks.map(({ label, href }) => {
               const active =
@@ -85,8 +85,8 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className={`block px-3 py-2 rounded text-sm font-body transition-colors ${
                       active
-                        ? "text-terracotta"
-                        : "text-blue-pale hover:text-ivory"
+                        ? "text-gold"
+                        : "text-sand hover:text-ivory"
                     }`}
                   >
                     {label}
@@ -99,7 +99,7 @@ export default function Navbar() {
             href="https://wa.me/6281223840395"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 flex items-center justify-center bg-terracotta text-white text-sm font-body font-medium px-4 py-2 rounded hover:bg-terracotta/90 transition-colors"
+            className="mt-3 flex items-center justify-center bg-gold text-white text-sm font-body font-medium px-4 py-2 rounded hover:bg-gold/90 transition-colors"
           >
             Konsultasi via WhatsApp
           </a>

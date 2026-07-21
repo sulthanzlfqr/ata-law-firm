@@ -1,13 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy-950: #0e1b2e;
-  --color-navy-900: #16294a;
-  --color-ivory: #faf9f6;
-  --color-terracotta: #e8935c;
-  --color-crimson: #8c1f1f;
-  --color-blue-light: #7fa0d6;
-  --color-blue-pale: #b9c7de;
+  /* Maroon/gold palette. --color-maroon-800 and --color-gold-light are not
+     yet consumed anywhere but are part of the full palette handed down for
+     the rebrand, kept available for future gradients/hover states. */
+  --color-maroon-950: #2e0f12;
+  --color-maroon-900: #4a1d22;
+  --color-maroon-800: #5c2830;
+  --color-ivory: #f7f2e7;
+  --color-gold: #c9a66b;
+  --color-gold-light: #d9bc8c;
+  /* Lightened from the handed-down #7a2e35 (kept the ~354° hue and similar
+     saturation): at #7a2e35 this token renders as text on maroon-950 at a
+     ~1.9:1 contrast ratio, well under WCAG AA. #ca7d84 clears ~5.7:1. */
+  --color-wine: #ca7d84;
+  --color-sand: #e3c9b0;
 
   --font-display: var(--font-fraunces);
   --font-body: var(--font-inter);
@@ -21,7 +28,7 @@ html {
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
   background-color: var(--color-ivory);
-  color: #1a1a2e;
+  color: #2e0f12;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

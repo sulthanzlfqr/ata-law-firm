@@ -54,17 +54,17 @@ export default async function BerandaPage() {
 
   return (
     <>
-      <section className="bg-navy-950">
+      <section className="bg-maroon-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <Reveal duration={1250} y={20}>
-              <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-6">
+              <p className="font-label text-xs uppercase tracking-widest text-gold mb-6">
                 ATA Law Firm · Majalengka, Jawa Barat
               </p>
               <h1 className="font-display text-ivory text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
                 Solusi Hukum yang Andal dan Profesional
               </h1>
-              <p className="font-body text-blue-pale text-lg leading-relaxed mb-10">
+              <p className="font-body text-sand text-lg leading-relaxed mb-10">
                 Kami hadir untuk mendampingi Anda menghadapi berbagai persoalan
                 hukum dengan pendekatan yang cermat, transparan, dan berpihak pada
                 keadilan. Berlokasi di Majalengka, Jawa Barat.
@@ -74,7 +74,7 @@ export default async function BerandaPage() {
                   href="https://wa.me/6281223840395"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-terracotta text-white font-body font-medium px-6 py-3 rounded hover:bg-terracotta/90 transition-colors"
+                  className="inline-flex items-center gap-2 bg-gold text-white font-body font-medium px-6 py-3 rounded hover:bg-gold/90 transition-colors"
                 >
                   Jadwalkan Konsultasi
                 </a>
@@ -104,13 +104,13 @@ export default async function BerandaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <Reveal duration={950} y={16}>
-              <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+              <p className="font-label text-xs uppercase tracking-widest text-gold mb-4">
                 Tentang Kami
               </p>
-              <h2 className="font-display text-navy-950 text-3xl md:text-4xl font-semibold leading-tight mb-6">
+              <h2 className="font-display text-maroon-950 text-3xl md:text-4xl font-semibold leading-tight mb-6">
                 Pengacara Berpengalaman, Solusi Nyata
               </h2>
-              <p className="font-body text-navy-900/70 text-base leading-relaxed mb-8">
+              <p className="font-body text-maroon-900/70 text-base leading-relaxed mb-8">
                 ATA Law Firm telah memberikan pelayanan hukum yang
                 komprehensif kepada klien perorangan maupun korporat di
                 wilayah Jawa Barat dan sekitarnya. Kepercayaan klien adalah
@@ -118,7 +118,7 @@ export default async function BerandaPage() {
               </p>
               <Link
                 href="/tentang"
-                className="inline-flex items-center gap-2 font-body font-medium text-navy-950 border-b border-navy-950/30 pb-0.5 hover:border-terracotta hover:text-terracotta transition-colors"
+                className="inline-flex items-center gap-2 font-body font-medium text-maroon-950 border-b border-maroon-950/30 pb-0.5 hover:border-gold hover:text-gold transition-colors"
               >
                 Pelajari Lebih Lanjut
                 <span aria-hidden>→</span>
@@ -134,13 +134,13 @@ export default async function BerandaPage() {
                 <Reveal
                   key={stat.label}
                   as="div"
-                  className="bg-navy-950 rounded-lg p-6 flex flex-col gap-2"
+                  className="bg-maroon-950 rounded-lg p-6 flex flex-col gap-2"
                   delay={staggerDelay(i)}
                 >
-                  <p className="font-label text-3xl font-medium text-terracotta">
+                  <p className="font-label text-3xl font-medium text-gold">
                     {stat.nilai}
                   </p>
-                  <p className="font-body text-sm text-blue-pale">
+                  <p className="font-body text-sm text-sand">
                     {stat.label}
                   </p>
                 </Reveal>
@@ -150,7 +150,7 @@ export default async function BerandaPage() {
         </div>
       </section>
 
-      <section className="bg-navy-900">
+      <section className="bg-maroon-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <Reveal
             as="div"
@@ -159,7 +159,7 @@ export default async function BerandaPage() {
             y={16}
           >
             <div>
-              <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+              <p className="font-label text-xs uppercase tracking-widest text-gold mb-4">
                 Layanan Kami
               </p>
               <h2 className="font-display text-ivory text-3xl md:text-4xl font-semibold leading-tight">
@@ -168,14 +168,14 @@ export default async function BerandaPage() {
             </div>
             <Link
               href="/bidang-praktik"
-              className="font-body text-sm text-blue-pale hover:text-ivory transition-colors shrink-0"
+              className="font-body text-sm text-sand hover:text-ivory transition-colors shrink-0"
             >
               Lihat semua →
             </Link>
           </Reveal>
 
           {bidangPraktik.length === 0 ? (
-            <p className="font-body text-blue-pale/60 text-center py-12">
+            <p className="font-body text-sand/60 text-center py-12">
               Konten bidang praktik belum tersedia.
             </p>
           ) : (
@@ -186,16 +186,16 @@ export default async function BerandaPage() {
                   <Reveal key={b.slug} delay={staggerDelay(i)}>
                     <Link
                       href={`/bidang-praktik/${b.slug}`}
-                      className="group bg-navy-900 hover:bg-navy-950 transition-colors p-6 flex flex-col gap-4 h-full"
+                      className="group bg-maroon-900 hover:bg-maroon-950 transition-colors p-6 flex flex-col gap-4 h-full"
                     >
-                      <div className="w-10 h-10 text-terracotta">
+                      <div className="w-10 h-10 text-gold">
                         <Icon className="w-full h-full" />
                       </div>
                       <div>
-                        <p className="font-display text-ivory font-medium mb-2 group-hover:text-terracotta transition-colors">
+                        <p className="font-display text-ivory font-medium mb-2 group-hover:text-gold transition-colors">
                           {b.judul}
                         </p>
-                        <p className="font-body text-sm text-blue-pale leading-relaxed line-clamp-2">
+                        <p className="font-body text-sm text-sand leading-relaxed line-clamp-2">
                           {b.deskripsiSingkat}
                         </p>
                       </div>
@@ -208,20 +208,20 @@ export default async function BerandaPage() {
         </div>
       </section>
 
-      <section className="bg-navy-900 border-t border-white/10">
+      <section className="bg-maroon-900 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <Reveal
             as="div"
             className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
           >
             <div className="max-w-xl">
-              <p className="font-label text-xs uppercase tracking-widest text-blue-light mb-4">
+              <p className="font-label text-xs uppercase tracking-widest text-wine mb-4">
                 Edukasi Hukum
               </p>
               <h2 className="font-display text-ivory text-3xl md:text-4xl font-semibold leading-tight mb-4">
                 Mengenal hak Anda di mata hukum
               </h2>
-              <p className="font-body text-blue-pale text-sm leading-relaxed">
+              <p className="font-body text-sand text-sm leading-relaxed">
                 Kami percaya pengetahuan hukum bukan hanya untuk praktisi.
                 Artikel berikut merangkum ketentuan yang berlaku di Indonesia
                 agar masyarakat lebih memahami hak dan posisinya.
@@ -229,14 +229,14 @@ export default async function BerandaPage() {
             </div>
             <Link
               href="/artikel"
-              className="font-body text-sm text-blue-pale hover:text-ivory transition-colors shrink-0"
+              className="font-body text-sm text-sand hover:text-ivory transition-colors shrink-0"
             >
               Lihat semua →
             </Link>
           </Reveal>
 
           {artikelUnggulan.length === 0 ? (
-            <p className="font-label text-sm text-[#5A719A] text-center py-14">
+            <p className="font-label text-sm text-[#A8998A] text-center py-14">
               Artikel edukasi hukum akan segera hadir di sini.
             </p>
           ) : (
@@ -248,17 +248,17 @@ export default async function BerandaPage() {
                     className="group bg-white/5 border border-white/10 rounded-lg p-6 flex flex-col gap-4 hover:bg-white/10 transition-colors h-full"
                   >
                     {a.kategori && (
-                      <p className="font-label text-xs text-terracotta uppercase tracking-wide">
+                      <p className="font-label text-xs text-gold uppercase tracking-wide">
                         {a.kategori.judul}
                       </p>
                     )}
-                    <h3 className="font-display text-ivory font-medium leading-snug group-hover:text-terracotta transition-colors line-clamp-2">
+                    <h3 className="font-display text-ivory font-medium leading-snug group-hover:text-gold transition-colors line-clamp-2">
                       {a.judul}
                     </h3>
-                    <p className="font-body text-sm text-[#93A5C4] leading-relaxed line-clamp-3 flex-1">
+                    <p className="font-body text-sm text-[#A8998A] leading-relaxed line-clamp-3 flex-1">
                       {a.ringkasan}
                     </p>
-                    <span className="font-label text-xs text-terracotta mt-auto">
+                    <span className="font-label text-xs text-gold mt-auto">
                       Baca selengkapnya →
                     </span>
                   </Link>
@@ -270,7 +270,7 @@ export default async function BerandaPage() {
       </section>
 
       {tim.length > 0 && (
-        <section className="bg-ivory border-t border-navy-950/5">
+        <section className="bg-ivory border-t border-maroon-950/5">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
             <Reveal
               as="div"
@@ -279,16 +279,16 @@ export default async function BerandaPage() {
               y={16}
             >
               <div>
-                <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+                <p className="font-label text-xs uppercase tracking-widest text-gold mb-4">
                   Tim Kami
                 </p>
-                <h2 className="font-display text-navy-950 text-3xl md:text-4xl font-semibold leading-tight">
+                <h2 className="font-display text-maroon-950 text-3xl md:text-4xl font-semibold leading-tight">
                   Advokat &amp; Profesional
                 </h2>
               </div>
               <Link
                 href="/tim"
-                className="font-body text-sm text-navy-900/60 hover:text-navy-950 transition-colors shrink-0"
+                className="font-body text-sm text-maroon-900/60 hover:text-maroon-950 transition-colors shrink-0"
               >
                 Kenali tim kami →
               </Link>
@@ -302,7 +302,7 @@ export default async function BerandaPage() {
                   className="flex flex-col gap-3 text-center"
                   delay={staggerDelay(i)}
                 >
-                  <div className="aspect-square rounded-lg overflow-hidden bg-navy-900/10 mx-auto w-full max-w-36">
+                  <div className="aspect-square rounded-lg overflow-hidden bg-maroon-900/10 mx-auto w-full max-w-36">
                     {anggota.foto ? (
                       <Image
                         src={urlForImage(anggota.foto).width(300).height(300).url()}
@@ -312,14 +312,14 @@ export default async function BerandaPage() {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full bg-[#E3DFD3]" />
+                      <div className="w-full h-full bg-[#E8DCC8]" />
                     )}
                   </div>
                   <div>
-                    <p className="font-display text-navy-950 font-medium text-sm">
+                    <p className="font-display text-maroon-950 font-medium text-sm">
                       {anggota.nama}
                     </p>
-                    <p className="font-label text-xs text-navy-900/50 mt-0.5">
+                    <p className="font-label text-xs text-maroon-900/50 mt-0.5">
                       {anggota.jabatan}
                     </p>
                   </div>
@@ -330,17 +330,17 @@ export default async function BerandaPage() {
         </section>
       )}
 
-      <section className="bg-navy-950">
+      <section className="bg-maroon-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <Reveal duration={950} y={16}>
-              <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+              <p className="font-label text-xs uppercase tracking-widest text-gold mb-4">
                 Hubungi Kami
               </p>
               <h2 className="font-display text-ivory text-3xl md:text-4xl font-semibold leading-tight mb-6">
                 Siap Membantu Anda
               </h2>
-              <p className="font-body text-blue-pale leading-relaxed mb-8">
+              <p className="font-body text-sand leading-relaxed mb-8">
                 Dapatkan konsultasi hukum dari tim kami. Kami siap mendengar
                 dan memberikan solusi terbaik untuk permasalahan hukum Anda.
               </p>
@@ -348,7 +348,7 @@ export default async function BerandaPage() {
                 href="https://wa.me/6281223840395"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-terracotta text-white font-body font-medium px-6 py-3 rounded hover:bg-terracotta/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-gold text-white font-body font-medium px-6 py-3 rounded hover:bg-gold/90 transition-colors"
               >
                 Konsultasi Sekarang
               </a>
@@ -384,7 +384,7 @@ export default async function BerandaPage() {
                   duration={580}
                   delay={staggerDelay(i, 80)}
                 >
-                  <p className="font-label text-xs text-terracotta uppercase tracking-wide w-28 shrink-0 pt-0.5">
+                  <p className="font-label text-xs text-gold uppercase tracking-wide w-28 shrink-0 pt-0.5">
                     {item.label}
                   </p>
                   {item.href ? (
@@ -392,12 +392,12 @@ export default async function BerandaPage() {
                       href={item.href}
                       target={item.href.startsWith("http") ? "_blank" : undefined}
                       rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="font-body text-sm text-blue-pale hover:text-ivory transition-colors"
+                      className="font-body text-sm text-sand hover:text-ivory transition-colors"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="font-body text-sm text-blue-pale">{item.value}</p>
+                    <p className="font-body text-sm text-sand">{item.value}</p>
                   )}
                 </Reveal>
               ))}

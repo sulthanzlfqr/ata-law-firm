@@ -39,16 +39,16 @@ export default async function BidangPraktikPage() {
 
   return (
     <>
-      <section className="bg-navy-950 py-20 md:py-28">
+      <section className="bg-maroon-950 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal duration={950} y={16}>
-            <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+            <p className="font-label text-xs uppercase tracking-widest text-gold mb-4">
               Layanan Kami
             </p>
             <h1 className="font-display text-ivory text-4xl md:text-5xl font-semibold leading-tight mb-4">
               Bidang Praktik
             </h1>
-            <p className="font-body text-blue-pale text-lg max-w-xl">
+            <p className="font-body text-sand text-lg max-w-xl">
               Kami menangani berbagai bidang hukum untuk memastikan setiap klien
               mendapatkan penanganan yang tepat dan kompeten.
             </p>
@@ -59,7 +59,7 @@ export default async function BidangPraktikPage() {
       <section className="bg-ivory py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {list.length === 0 ? (
-            <p className="font-body text-navy-900/40 text-center py-12">
+            <p className="font-body text-maroon-900/40 text-center py-12">
               Konten bidang praktik belum tersedia. Silakan tambahkan melalui
               Sanity Studio.
             </p>
@@ -71,20 +71,20 @@ export default async function BidangPraktikPage() {
                   <Reveal key={b.slug} delay={staggerDelay(i)}>
                     <Link
                       href={`/bidang-praktik/${b.slug}`}
-                      className="group bg-white border border-navy-950/10 hover:border-terracotta/30 rounded-xl p-6 flex flex-col gap-5 transition-all hover:shadow-lg hover:shadow-navy-950/5 h-full"
+                      className="group bg-white border border-maroon-950/10 hover:border-gold/30 rounded-xl p-6 flex flex-col gap-5 transition-all hover:shadow-lg hover:shadow-maroon-950/5 h-full"
                     >
-                      <div className="w-10 h-10 text-terracotta">
+                      <div className="w-10 h-10 text-gold">
                         <Icon className="w-full h-full" />
                       </div>
                       <div className="flex flex-col gap-2">
-                        <h2 className="font-display text-navy-950 font-medium group-hover:text-terracotta transition-colors">
+                        <h2 className="font-display text-maroon-950 font-medium group-hover:text-gold transition-colors">
                           {b.judul}
                         </h2>
-                        <p className="font-body text-sm text-navy-900/60 leading-relaxed">
+                        <p className="font-body text-sm text-maroon-900/60 leading-relaxed">
                           {b.deskripsiSingkat}
                         </p>
                       </div>
-                      <span className="font-label text-xs text-terracotta mt-auto">
+                      <span className="font-label text-xs text-gold mt-auto">
                         Selengkapnya →
                       </span>
                     </Link>

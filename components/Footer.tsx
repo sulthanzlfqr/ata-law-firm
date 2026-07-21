@@ -14,7 +14,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-950 text-blue-pale">
+    <footer className="bg-maroon-950 text-sand">
       <Reveal as="div" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" y={8} duration={500}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
@@ -28,7 +28,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+            <p className="font-label text-xs uppercase tracking-widest text-gold mb-4">
               Navigasi
             </p>
             <ul className="flex flex-col gap-2">
@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+            <p className="font-label text-xs uppercase tracking-widest text-gold mb-4">
               Kontak
             </p>
             <address className="not-italic flex flex-col gap-2 text-sm font-body">
@@ -74,10 +74,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2">
-          <p className="text-xs font-label text-blue-pale/60">
+          <p className="text-xs font-label text-sand/60">
             &copy; {year} ATA Law Firm. Hak cipta dilindungi.
           </p>
-          <p className="text-xs font-label text-blue-pale/40">
+          <p className="text-xs font-label text-sand/40">
             Senin – Jumat, 09.00 – 17.00 WIB
           </p>
         </div>

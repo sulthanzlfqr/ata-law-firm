@@ -76,17 +76,17 @@ export default async function ArtikelPage({
       <section className="bg-ivory py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal duration={950} y={16}>
-            <p className="font-label text-xs uppercase tracking-widest text-terracotta mb-4">
+            <p className="font-label text-xs uppercase tracking-widest text-gold mb-4">
               Wawasan Hukum
             </p>
-            <h1 className="font-display text-navy-950 text-4xl md:text-5xl font-semibold leading-tight">
+            <h1 className="font-display text-maroon-950 text-4xl md:text-5xl font-semibold leading-tight">
               Artikel &amp; Insight
             </h1>
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-ivory border-t border-navy-950/5 pb-20 md:pb-28">
+      <section className="bg-ivory border-t border-maroon-950/5 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {kategoriList.length > 0 && (
             <Reveal as="div" className="flex flex-wrap gap-2 pt-8 pb-10" y={8} duration={580}>
@@ -94,8 +94,8 @@ export default async function ArtikelPage({
                 href="/artikel"
                 className={`font-label text-xs px-3 py-1.5 rounded-full border transition-colors ${
                   !kategoriFilter
-                    ? "bg-navy-950 text-ivory border-navy-950"
-                    : "border-navy-950/20 text-navy-900/60 hover:border-navy-950/40"
+                    ? "bg-maroon-950 text-ivory border-maroon-950"
+                    : "border-maroon-950/20 text-maroon-900/60 hover:border-maroon-950/40"
                 }`}
               >
                 Semua
@@ -106,8 +106,8 @@ export default async function ArtikelPage({
                   href={`/artikel?kategori=${k.slug}`}
                   className={`font-label text-xs px-3 py-1.5 rounded-full border transition-colors ${
                     kategoriFilter === k.slug
-                      ? "bg-navy-950 text-ivory border-navy-950"
-                      : "border-navy-950/20 text-navy-900/60 hover:border-navy-950/40"
+                      ? "bg-maroon-950 text-ivory border-maroon-950"
+                      : "border-maroon-950/20 text-maroon-900/60 hover:border-maroon-950/40"
                   }`}
                 >
                   {k.judul}
@@ -117,7 +117,7 @@ export default async function ArtikelPage({
           )}
 
           {artikel.length === 0 ? (
-            <p className="font-body text-navy-900/40 text-center py-12">
+            <p className="font-body text-maroon-900/40 text-center py-12">
               Belum ada artikel yang diterbitkan.
             </p>
           ) : (
@@ -128,7 +128,7 @@ export default async function ArtikelPage({
                     href={`/artikel/${a.slug}`}
                     className="group flex flex-col gap-4"
                   >
-                    <div className="aspect-video rounded-lg overflow-hidden bg-navy-900/10">
+                    <div className="aspect-video rounded-lg overflow-hidden bg-maroon-900/10">
                       {a.gambarSampul ? (
                         <Image
                           src={urlForImage(a.gambarSampul)
@@ -141,31 +141,31 @@ export default async function ArtikelPage({
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       ) : (
-                        <div className="w-full h-full bg-navy-900/15" />
+                        <div className="w-full h-full bg-maroon-900/15" />
                       )}
                     </div>
 
                     {a.kategori && (
-                      <p className="font-label text-xs text-terracotta uppercase tracking-wide">
+                      <p className="font-label text-xs text-gold uppercase tracking-wide">
                         {a.kategori.judul}
                       </p>
                     )}
 
-                    <h2 className="font-display text-navy-950 font-medium leading-snug group-hover:text-terracotta transition-colors line-clamp-2">
+                    <h2 className="font-display text-maroon-950 font-medium leading-snug group-hover:text-gold transition-colors line-clamp-2">
                       {a.judul}
                     </h2>
 
-                    <p className="font-body text-sm text-navy-900/60 leading-relaxed line-clamp-3">
+                    <p className="font-body text-sm text-maroon-900/60 leading-relaxed line-clamp-3">
                       {a.ringkasan}
                     </p>
 
                     <div className="flex items-center justify-between mt-auto">
                       {a.penulis && (
-                        <p className="font-label text-xs text-navy-900/40">
+                        <p className="font-label text-xs text-maroon-900/40">
                           {a.penulis.nama}
                         </p>
                       )}
-                      <p className="font-label text-xs text-navy-900/40">
+                      <p className="font-label text-xs text-maroon-900/40">
                         {formatTanggal(a.tanggalPublikasi)}
                       </p>
                     </div>
